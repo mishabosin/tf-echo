@@ -3,9 +3,8 @@ var http = require('http');
 var PORT = 8080;
 
 function jsonResponse(response, data) {
-  response.setHeader('Content-Type', 'application/json');
-  response.write(JSON.stringify(data));
-  response.end();
+    response.setHeader('Content-Type', 'application/json');
+    response.end(JSON.stringify(data));
 }
 
 function jsonHeaderPropResponse(response, headers, headerProp) {
@@ -22,8 +21,7 @@ function notFoundResponse(response, msg) {
         msg = 'Not found';
     }
     response.statusCode = 404;
-    response.write('404: ' + msg);
-    response.end();
+    response.end('404: ' + msg);
 }
 
 var server = http.createServer(function(request, response) {
